@@ -25,7 +25,7 @@ COPY package*.json ./
 RUN npm install --omit=dev && npm cache clean --force
 
 # builder からビルド結果だけコピー
-COPY --from=builder /work/out ./out
+COPY --from=builder /work/dist ./dist
 
 # Node.js アプリを起動
-CMD ["node", "./out/index.js"]
+CMD ["node", "./dist/index.js"]
